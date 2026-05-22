@@ -13,7 +13,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://prescient-assignment-6zu5.vercel.app",
+      "prescient-assignment-6zu5-irb3580v9.vercel.app",
     ],
   }),
 );
