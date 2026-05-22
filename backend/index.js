@@ -9,25 +9,23 @@ const productRoute = require("./routes/product.routes");
 
 const app = express();
 
-// CORS
 app.use(
   cors({
     origin: [
       "http://localhost:5173",
       "https://prescient-shopping-cart-client.vercel.app",
     ],
-    credentials: true,
   }),
 );
 
-// Middleware
 app.use(express.json());
 
-// Routes
+// 🔥 IMPORTANT: ensure DB is ready before any route
+app.use(async (req, res, next) => {
+  await connectDB();
+  next();
+});
+
 productRoute(app);
 
-// Connect DB
-// connectDB();
-
-// Export app for Vercel
 module.exports = app;
