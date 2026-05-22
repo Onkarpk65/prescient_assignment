@@ -1,0 +1,20 @@
+{
+  "name": "shopping_cart backend",
+  "version": "1.0.0",
+  "description": "This is an assignment for CRUD operations in shoppingCart",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx nodemon index.js"
+  },
+  "author": "Onkar D Pathak",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Onkarpk65/Prescient_Assignment/issues"
+  },
+  "homepage": "https://github.com/Onkarpk65/Prescient_Assignment#readme",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "mongoose": "^9.6.2"
+  }
+}
