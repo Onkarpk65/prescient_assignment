@@ -27,7 +27,7 @@ app.use(express.json());
 productRoute(app);
 
 // Connect DB
-connectDB();
+// connectDB();
 
 // Export app for Vercel
 module.exports = app;
