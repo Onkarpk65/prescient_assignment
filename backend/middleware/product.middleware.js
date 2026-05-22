@@ -6,7 +6,6 @@ const badRequestResponseObject = {
 };
 
 const validateCreateProductRequest = (req, res, next) => {
-  console.log("Validating create product request with body:", req.body);
   const { name, price } = req.body;
   let errors = [];
 
@@ -36,10 +35,10 @@ const validateUpdateProductRequest = (req, res, next) => {
   const { name, price } = req.body;
   let errors = [];
 
-  if (name) {
+  if (!name) {
     errors.push({
       field: "name",
-      message: "Name cannot be updated",
+      message: "Name is required",
     });
   }
 

@@ -13,7 +13,7 @@ const router = (app) => {
   app.get("/shoppingcart/api/v1/items", productController.getAll);
 
   // UPDATE
-  app.patch(
+  app.put(
     "/shoppingcart/api/v1/items/:id",
     productMiddleware.validateUpdateProductRequest,
     productController.update,

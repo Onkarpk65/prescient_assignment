@@ -3,7 +3,14 @@ const Product = require("../model/product.model");
 const create = async (data) => {
   try {
     const response = await Product.create(data);
-    console.log("Product created successfully:", response);
+    console.log("Response from Product.create:", response);
+    if (!response) {
+      return {
+        err: "Unable to create the product",
+        code: 500,
+      };
+    }
+
     return response;
   } catch (error) {
     if (error.name === "ValidationError") {
@@ -34,6 +41,7 @@ const update = async (itemId, data) => {
     const query = {};
 
     if (data.price) {
+      query.name = data.name;
       query.price = data.price;
     }
 
