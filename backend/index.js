@@ -13,7 +13,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://prescient-shopping-cart-client.vercel.app",
+      "https://prescient-assignment-6zu5.vercel.app/",
     ],
   }),
 );
