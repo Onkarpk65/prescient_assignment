@@ -1,31 +1,33 @@
 const dotenv = require("dotenv");
 dotenv.config();
+
 const express = require("express");
-const connectDB = require("./config/db");
 const cors = require("cors");
+
+const connectDB = require("./config/db");
+const productRoute = require("./routes/product.routes");
+
 const app = express();
+
+// CORS
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: [
+      "http://localhost:5173",
+      "https://prescient-shopping-cart-client.vercel.app",
+    ],
     credentials: true,
   }),
 );
 
-const productRoute = require("./routes/product.routes");
-
+// Middleware
 app.use(express.json());
+
+// Routes
 productRoute(app);
 
-const startServer = async () => {
-  try {
-    await connectDB();
-    app.listen(process.env.PORT, () => {
-      console.log(`Server is running on port ${process.env.PORT}`);
-    });
-  } catch (error) {
-    console.error("Error starting the server:", error);
-    process.exit(1);
-  }
-};
+// Connect DB
+connectDB();
 
-startServer();
+// Export app for Vercel
+module.exports = app;
