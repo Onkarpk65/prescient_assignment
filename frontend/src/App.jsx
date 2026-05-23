@@ -162,7 +162,7 @@ const App = () => {
     return (
       <div className="text-right mt-6">
         <span className="text-lg font-semibold">
-          Total: ${total.toFixed(2)}
+          Total: ₹{total.toFixed(2)}
         </span>
       </div>
     );
